@@ -1,0 +1,5 @@
+deps/
+
+# Xcode
+platform/macos/**/xcuserdata/
+platform/macos/**/build/

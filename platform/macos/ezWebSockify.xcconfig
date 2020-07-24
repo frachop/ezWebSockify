@@ -1,0 +1,18 @@
+//
+//  ws2tcp.xcconfig
+//  ws2tcp
+//
+//  Created by Franck  on 08/07/2020.
+//  Copyright © 2020 Frachop. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+ROOT_DIR=${PROJECT_DIR}/../..
+DEPS_DIR=${ROOT_DIR}/../ezWebSockify.deps
+
+ALWAYS_SEARCH_USER_PATHS = NO
+HEADER_SEARCH_PATHS = ${DEPS_DIR}/include
+CLANG_CXX_LANGUAGE_STANDARD = c++17
+CLANG_CXX_LIBRARY = libc++

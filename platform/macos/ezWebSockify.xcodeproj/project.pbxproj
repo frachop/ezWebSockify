@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		89AE264C24C874F6006D5F04 /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89AE264B24C874F6006D5F04 /* common.cpp */; };
+		89AE265124C875C2006D5F04 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89AE265024C875C2006D5F04 /* main.cpp */; };
+		89AE265324C88A99006D5F04 /* libezWebSockifyLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AE264024C87325006D5F04 /* libezWebSockifyLib.a */; };
+		89AE265724C8CBE4006D5F04 /* tcpClient.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 89AE265524C8CBE4006D5F04 /* tcpClient.hpp */; };
+		89AE265C24C8EBA8006D5F04 /* wsServer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 89AE265A24C8EBA8006D5F04 /* wsServer.hpp */; };
+		89AE265D24C8FA61006D5F04 /* tcpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89AE265424C8CBE4006D5F04 /* tcpClient.cpp */; };
+		89AE265E24C8FA73006D5F04 /* wsServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89AE265924C8EBA8006D5F04 /* wsServer.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		89AE264D24C8750B006D5F04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89AE262824C8718C006D5F04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89AE263F24C87325006D5F04;
+			remoteInfo = ezWebSockifyLib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		89AE262E24C8718C006D5F04 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		89AE263024C8718C006D5F04 /* ezWebSockify */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ezWebSockify; sourceTree = BUILT_PRODUCTS_DIR; };
+		89AE264024C87325006D5F04 /* libezWebSockifyLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libezWebSockifyLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		89AE264424C8733B006D5F04 /* ezWebSockify.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ezWebSockify.xcconfig; sourceTree = "<group>"; };
+		89AE264924C87453006D5F04 /* ezWebSockifyLib.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ezWebSockifyLib.hpp; sourceTree = "<group>"; };
+		89AE264A24C8746F006D5F04 /* common.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = common.hpp; sourceTree = "<group>"; };
+		89AE264B24C874F6006D5F04 /* common.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = common.cpp; sourceTree = "<group>"; };
+		89AE265024C875C2006D5F04 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		89AE265424C8CBE4006D5F04 /* tcpClient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tcpClient.cpp; sourceTree = "<group>"; };
+		89AE265524C8CBE4006D5F04 /* tcpClient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = tcpClient.hpp; sourceTree = "<group>"; };
+		89AE265824C8D2EC006D5F04 /* pool.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = pool.hpp; sourceTree = "<group>"; };
+		89AE265924C8EBA8006D5F04 /* wsServer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wsServer.cpp; sourceTree = "<group>"; };
+		89AE265A24C8EBA8006D5F04 /* wsServer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = wsServer.hpp; sourceTree = "<group>"; };
+		89AE265F24C987FD006D5F04 /* stdIncludes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = stdIncludes.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89AE262D24C8718C006D5F04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89AE265324C88A99006D5F04 /* libezWebSockifyLib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89AE263E24C87325006D5F04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		89AE262724C8718C006D5F04 = {
+			isa = PBXGroup;
+			children = (
+				89AE264424C8733B006D5F04 /* ezWebSockify.xcconfig */,
+				89AE264524C87434006D5F04 /* lib */,
+				89AE264F24C875C2006D5F04 /* app */,
+				89AE263124C8718C006D5F04 /* Products */,
+				89AE265224C88A99006D5F04 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		89AE263124C8718C006D5F04 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89AE263024C8718C006D5F04 /* ezWebSockify */,
+				89AE264024C87325006D5F04 /* libezWebSockifyLib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89AE264524C87434006D5F04 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				89AE264624C87434006D5F04 /* include */,
+				89AE264824C87434006D5F04 /* src */,
+			);
+			name = lib;
+			path = ../../lib;
+			sourceTree = "<group>";
+		};
+		89AE264624C87434006D5F04 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				89AE264724C87434006D5F04 /* ezWebSockifyLib */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		89AE264724C87434006D5F04 /* ezWebSockifyLib */ = {
+			isa = PBXGroup;
+			children = (
+				89AE264924C87453006D5F04 /* ezWebSockifyLib.hpp */,
+			);
+			path = ezWebSockifyLib;
+			sourceTree = "<group>";
+		};
+		89AE264824C87434006D5F04 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				89AE264A24C8746F006D5F04 /* common.hpp */,
+				89AE264B24C874F6006D5F04 /* common.cpp */,
+				89AE265424C8CBE4006D5F04 /* tcpClient.cpp */,
+				89AE265524C8CBE4006D5F04 /* tcpClient.hpp */,
+				89AE265824C8D2EC006D5F04 /* pool.hpp */,
+				89AE265A24C8EBA8006D5F04 /* wsServer.hpp */,
+				89AE265924C8EBA8006D5F04 /* wsServer.cpp */,
+				89AE265F24C987FD006D5F04 /* stdIncludes.hpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		89AE264F24C875C2006D5F04 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				89AE265024C875C2006D5F04 /* main.cpp */,
+			);
+			name = app;
+			path = ../../app;
+			sourceTree = "<group>";
+		};
+		89AE265224C88A99006D5F04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		89AE263C24C87325006D5F04 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89AE265724C8CBE4006D5F04 /* tcpClient.hpp in Headers */,
+				89AE265C24C8EBA8006D5F04 /* wsServer.hpp in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		89AE262F24C8718C006D5F04 /* ezWebSockify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89AE263724C8718C006D5F04 /* Build configuration list for PBXNativeTarget "ezWebSockify" */;
+			buildPhases = (
+				89AE262C24C8718C006D5F04 /* Sources */,
+				89AE262D24C8718C006D5F04 /* Frameworks */,
+				89AE262E24C8718C006D5F04 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89AE264E24C8750B006D5F04 /* PBXTargetDependency */,
+			);
+			name = ezWebSockify;
+			productName = ezWebSockify;
+			productReference = 89AE263024C8718C006D5F04 /* ezWebSockify */;
+			productType = "com.apple.product-type.tool";
+		};
+		89AE263F24C87325006D5F04 /* ezWebSockifyLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89AE264124C87325006D5F04 /* Build configuration list for PBXNativeTarget "ezWebSockifyLib" */;
+			buildPhases = (
+				89AE263C24C87325006D5F04 /* Headers */,
+				89AE263D24C87325006D5F04 /* Sources */,
+				89AE263E24C87325006D5F04 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ezWebSockifyLib;
+			productName = ezWebSockifyLib;
+			productReference = 89AE264024C87325006D5F04 /* libezWebSockifyLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89AE262824C8718C006D5F04 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = Frachop;
+				TargetAttributes = {
+					89AE262F24C8718C006D5F04 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					89AE263F24C87325006D5F04 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = 89AE262B24C8718C006D5F04 /* Build configuration list for PBXProject "ezWebSockify" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 89AE262724C8718C006D5F04;
+			productRefGroup = 89AE263124C8718C006D5F04 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89AE263F24C87325006D5F04 /* ezWebSockifyLib */,
+				89AE262F24C8718C006D5F04 /* ezWebSockify */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89AE262C24C8718C006D5F04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89AE265124C875C2006D5F04 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89AE263D24C87325006D5F04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89AE265D24C8FA61006D5F04 /* tcpClient.cpp in Sources */,
+				89AE264C24C874F6006D5F04 /* common.cpp in Sources */,
+				89AE265E24C8FA73006D5F04 /* wsServer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		89AE264E24C8750B006D5F04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89AE263F24C87325006D5F04 /* ezWebSockifyLib */;
+			targetProxy = 89AE264D24C8750B006D5F04 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		89AE263524C8718C006D5F04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89AE264424C8733B006D5F04 /* ezWebSockify.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		89AE263624C8718C006D5F04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89AE264424C8733B006D5F04 /* ezWebSockify.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		89AE263824C8718C006D5F04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(ROOT_DIR)/lib/include",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		89AE263924C8718C006D5F04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(ROOT_DIR)/lib/include",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		89AE264224C87325006D5F04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_COMMA = NO;
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "${ROOT_DIR}/lib/src/stdIncludes.hpp";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		89AE264324C87325006D5F04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_COMMA = NO;
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "${ROOT_DIR}/lib/src/stdIncludes.hpp";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89AE262B24C8718C006D5F04 /* Build configuration list for PBXProject "ezWebSockify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89AE263524C8718C006D5F04 /* Debug */,
+				89AE263624C8718C006D5F04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89AE263724C8718C006D5F04 /* Build configuration list for PBXNativeTarget "ezWebSockify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89AE263824C8718C006D5F04 /* Debug */,
+				89AE263924C8718C006D5F04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89AE264124C87325006D5F04 /* Build configuration list for PBXNativeTarget "ezWebSockifyLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89AE264224C87325006D5F04 /* Debug */,
+				89AE264324C87325006D5F04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 89AE262824C8718C006D5F04 /* Project object */;
+}
