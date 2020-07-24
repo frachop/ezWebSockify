@@ -100,7 +100,7 @@ namespace ezWebSockify
 		}
 		catch (std::exception& e)
 		{
-			LOGE "Exception: {}", e.what());
+			LOGE("Exception: {}", e.what());
 		}
 		
 	}

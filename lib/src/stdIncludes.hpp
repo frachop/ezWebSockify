@@ -9,6 +9,42 @@
 #ifndef stdIncludes_h
 #define stdIncludes_h
 
+#include "platform.hpp"
+
+#if defined(DEBUG) || defined(_DEBUG)
+#	if !defined(DEBUG)
+#		define DEBUG 1
+#	endif
+#	if !defined(_DEBUG)
+#		define _DEBUG 1
+#	endif
+#else
+#	if !defined(NDEBUG)
+#		define NDEBUG 1
+#	endif
+#endif
+
+#if EZWSKFY_TARGET_PLATFORM(WINDOWS)
+#	if !defined(NOMINMAX)
+#		define NOMINMAX
+#	endif
+#	define _WINSOCKAPI_ // stops windows.h including winsock.h
+#	include <windows.h>
+#	include <winsock2.h>
+typedef long long ssize_t;
+
+// disable warnings about exception specifications,
+// which are not implemented in Visual C++
+#	pragma warning(disable:4290)
+#	define PLATFORM_PID DWORD
+#else
+
+#	define PLATFORM_PID pid_t
+#endif
+
+
+
+
 #if DEBUG
 #	define SPDLOG_ACTIVE_LEVEL 0
 #else

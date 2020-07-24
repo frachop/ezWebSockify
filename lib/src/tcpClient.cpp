@@ -77,7 +77,7 @@ namespace ezWebSockify {
 		}
 		else
 		{
-			LOGE "tcp connect : {}", ec.message());
+			LOGE("tcp connect : {}", ec.message());
 			close();
 		}
 	}
@@ -106,7 +106,7 @@ namespace ezWebSockify {
 		}
 		else
 		{
-			LOGE "tcp readed : {}", ec.message());
+			LOGE("tcp readed : {}", ec.message());
 			close();
 		}
 	}
@@ -141,7 +141,7 @@ namespace ezWebSockify {
 		}
 		else
 		{
-			LOGE "tcp writed : {}", ec.message());
+			LOGE("tcp writed : {}", ec.message());
 			close();
 		}
 	}

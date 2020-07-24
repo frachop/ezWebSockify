@@ -101,7 +101,7 @@ namespace ezWebSockify {
 			LOGTFN;
 			if (ec)
 			{
-				LOGE "ws onAccept : {}", ec.message());
+				LOGE("ws onAccept : {}", ec.message());
 				_closed = true;
 				_context._mustQuit = true;
 				return; // fail(ec, "accept");
@@ -140,7 +140,7 @@ namespace ezWebSockify {
 			}
 			if (ec)
 			{
-				LOGE "ws Read : {}", ec.message());
+				LOGE("ws Read : {}", ec.message());
 				_closed = true;
 				_context._mustQuit = true;
 				return;
@@ -192,7 +192,7 @@ namespace ezWebSockify {
 			
 			if (ec)
 			{
-				LOGE "ws onWrite : {}", ec.message());
+				LOGE("ws onWrite : {}", ec.message());
 				_closed = true;
 				_context._mustQuit = true;
 				return;

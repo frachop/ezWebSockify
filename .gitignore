@@ -1,5 +1,7 @@
 deps/
+.vs/
 
 # Xcode
 platform/macos/**/xcuserdata/
-platform/macos/**/build/
+platform/macos/**/Build/
+platform/windows/**/Build/

@@ -7,20 +7,20 @@
 //
 
 #pragma once
-//#include "stdIncludes.hpp"
+#include "stdIncludes.hpp"
 #include "../include/ezWebSockifyLib/ezWebSockifyLib.hpp"
 
 namespace ezWebSockify
 {
 	spdlog::logger* getLogger();
-	#define LOGT SPDLOG_LOGGER_TRACE(getLogger(),
-	#define LOGD SPDLOG_LOGGER_DEBUG(getLogger(),
-	#define LOGI SPDLOG_LOGGER_INFO(getLogger(),
-	#define LOGW SPDLOG_LOGGER_WARN(getLogger(),
-	#define LOGE SPDLOG_LOGGER_ERROR(getLogger(),
-	#define LOGC SPDLOG_LOGGER_CRITICAL(getLogger(),
+	#define LOGT(...) SPDLOG_LOGGER_TRACE(getLogger(),  __VA_ARGS__)
+	#define LOGD(...) SPDLOG_LOGGER_DEBUG(getLogger(),  __VA_ARGS__)
+	#define LOGI(...) SPDLOG_LOGGER_INFO(getLogger(),  __VA_ARGS__)
+	#define LOGW(...) SPDLOG_LOGGER_WARN(getLogger(),  __VA_ARGS__)
+	#define LOGE(...) SPDLOG_LOGGER_ERROR(getLogger(),  __VA_ARGS__)
+	#define LOGC(...) SPDLOG_LOGGER_CRITICAL(getLogger(),  __VA_ARGS__)
 	
-	#define LOGTFN LOGT "{}", BOOST_CURRENT_FUNCTION)
+	#define LOGTFN LOGT("{}", BOOST_CURRENT_FUNCTION)
 
 	//- /////////////////////////////////////////////////////////////////////////////////
 
@@ -71,11 +71,11 @@ namespace ezWebSockify
 					histogram[ static_cast<int>(f->_status) ]++;
 				}
 			);
-			LOGD "Frames {}", _all.size());
-			LOGD "  released    [{}]", histogram[0]);
-			LOGD "  readyToRead [{}]", histogram[1]);
-			LOGD "  readed      [{}]", histogram[2]);
-			LOGD "  waitToWrite [{}]", histogram[3]);
+			LOGD("Frames {}", _all.size());
+			LOGD("  released    [{}]", histogram[0]);
+			LOGD("  readyToRead [{}]", histogram[1]);
+			LOGD("  readed      [{}]", histogram[2]);
+			LOGD("  waitToWrite [{}]", histogram[3]);
 		}
 
 	private:
