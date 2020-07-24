@@ -51,7 +51,7 @@ namespace ezWebSockify
 		std::thread _thMonitor;
 	public:
 		Engine();
-		void run( );
+		void run(uint16_t wsPort, std::string const & tcpHost, uint16_t tcpPort);
 	};
 
 
@@ -71,10 +71,10 @@ namespace ezWebSockify
 	{
 	}
 
-	void Engine::run( /*tcp::resolver::results_type const& endpoints*/ )
+	void Engine::run(uint16_t wsPort, std::string const & tcpHost, uint16_t tcpPort /*tcp::resolver::results_type const& endpoints*/ )
 	{
-		_tcpClient.start(tcp::resolver(_iocTcp).resolve("192.168.1.49", "5900"));
-		_wsServer.start(tcp::endpoint{net::ip::make_address("127.0.0.1"), 4822});
+		_tcpClient.start(tcp::resolver(_iocTcp).resolve(tcpHost, std::to_string(tcpPort)));
+		_wsServer.start(tcp::endpoint{net::ip::make_address("127.0.0.1"), wsPort});
 
 		_thTcp = std::thread([this](){ _iocTcp.run(); });
 		_thWs  = std::thread([this](){ _iocWs.run(); });
@@ -91,19 +91,18 @@ namespace ezWebSockify
 		_thTcp.join();
 	}
 
-	void run() {
-#if 1
+	void run(uint16_t wsPort, std::string const & tcpHost, uint16_t tcpPort)
+	{
 		try
 		{
 			Engine engine;
-			engine.run();
+			engine.run(wsPort, tcpHost, tcpPort);
 		}
 		catch (std::exception& e)
 		{
-			std::cerr << "Exception: " << e.what() << "\n";
+			LOGE "Exception: {}", e.what());
 		}
 		
-#endif
 	}
 
 }

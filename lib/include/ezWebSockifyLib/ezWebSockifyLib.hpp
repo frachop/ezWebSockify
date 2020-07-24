@@ -7,9 +7,11 @@
 //
 
 #pragma once
+#include <string>
+#include <cinttypes>
 
 namespace ezWebSockify {
 
-	void run();
+	void run(uint16_t wsPort, std::string const & tcpHost, uint16_t tcpPort);
 
 }

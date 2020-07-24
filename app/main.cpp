@@ -9,6 +9,6 @@
 #include <ezWebSockifyLib/ezWebSockifyLib.hpp>
 
 int main(int argc, const char * argv[]) {
-	ezWebSockify::run();
+	ezWebSockify::run(4822, "192.168.1.49", 5900);
 	return 1;
 }
