@@ -6,6 +6,7 @@
 //  Copyright © 2020 Frachop. All rights reserved.
 //
 
+#include "stdIncludes.hpp"
 #include "common.hpp"
 
 namespace ezWebSockify {
@@ -26,6 +27,8 @@ namespace ezWebSockify {
 	void TCPClient::start(tcp::resolver::results_type const& endpoints)
 	{
 		LOGTFN;
+		
+		//tcp::endpoint ep{boost::asio::ip::address::from_string("127.0.0.1"), 7171};
 		net::async_connect(_socket, endpoints,
 			std::bind( &TCPClient::connected, this, std::placeholders::_1, std::placeholders::_2) );
 

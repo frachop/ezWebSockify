@@ -5,7 +5,7 @@
 //  Created by Franck  on 22/07/2020.
 //  Copyright © 2020 Frachop. All rights reserved.
 //
-
+#include "stdIncludes.hpp"
 #include "common.hpp"
 #include <spdlog/sinks/base_sink.h>
 #include <spdlog/sinks/dist_sink.h>
@@ -46,8 +46,8 @@ namespace ezWebSockify
 		TCPClient       _tcpClient;
 		WSServer        _wsServer;
 	
-		std::thread _thTcp;
-		std::thread _thWs;
+		//std::thread _thTcp;
+		//std::thread _thWs;
 		std::thread _thMonitor;
 	public:
 		Engine();
@@ -65,8 +65,8 @@ namespace ezWebSockify
 	,	_context{}
 	,	_tcpClient{_context, _iocTcp, _ws2tcp, _tcp2ws}
 	,	_wsServer{_context, _iocWs, _tcp2ws, _ws2tcp}
-	,	_thTcp{}
-	,	_thWs{}
+	//,	_thTcp{}
+	//,	_thWs{}
 	,	_thMonitor{}
 	{
 	}
@@ -76,19 +76,21 @@ namespace ezWebSockify
 		_tcpClient.start(tcp::resolver(_iocTcp).resolve(tcpHost, std::to_string(tcpPort)));
 		_wsServer.start(tcp::endpoint{net::ip::make_address("127.0.0.1"), wsPort});
 
-		_thTcp = std::thread([this](){ _iocTcp.run(); });
-		_thWs  = std::thread([this](){ _iocWs.run(); });
 		_thMonitor = std::thread( [this](){
+			std::thread thTcp = std::thread([this](){ _iocTcp.run(); });
+			std::thread thWs  = std::thread([this](){ _iocWs.run(); });
+			
 			while (!_context._mustQuit) {
 				std::this_thread::sleep_for(std::chrono::milliseconds(20));
 			}
 			_iocWs.stop();
 			_iocTcp.stop();
+
+			thWs.join();
+			thTcp.join();
 		});
 
 		_thMonitor.join();
-		_thWs.join();
-		_thTcp.join();
 	}
 
 	void run(uint16_t wsPort, std::string const & tcpHost, uint16_t tcpPort)

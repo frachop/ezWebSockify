@@ -5,7 +5,7 @@
 //  Created by Franck  on 22/07/2020.
 //  Copyright © 2020 Frachop. All rights reserved.
 //
-
+#include "stdIncludes.hpp"
 #include "common.hpp"
 
 namespace ezWebSockify {
