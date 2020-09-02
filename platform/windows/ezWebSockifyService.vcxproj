@@ -150,7 +150,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ezWebSockifyService\baseService.cpp" />
+    <ClCompile Include="ezWebSockifyService\common.cpp" />
     <ClCompile Include="ezWebSockifyService\ezWebSockifyService.cpp" />
+    <ClCompile Include="ezWebSockifyService\main.cpp" />
+    <ClCompile Include="ezWebSockifyService\setup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="ezWebSockifyLib.vcxproj">
@@ -160,6 +163,7 @@
   <ItemGroup>
     <ClInclude Include="ezWebSockifyService\baseService.hpp" />
     <ClInclude Include="ezWebSockifyService\common.hpp" />
+    <ClInclude Include="ezWebSockifyService\serviceMessage.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,6 +9,8 @@
 #pragma once
 namespace ezWebSockify {
 
+	class WsSession;
+
 	class WSServer
 	{
 	private:
@@ -17,9 +19,11 @@ namespace ezWebSockify {
 		IStream & _in;
 		OStream & _out;
 		tcp::acceptor _acceptor;
+		std::unique_ptr<WsSession> _uniqueSession;
 
 	public:
 		WSServer(Context & context, net::io_context& io_context, IStream & _in, OStream & out);
+		~WSServer();
 		void start(tcp::endpoint const & endpoint);
 		
 	private:

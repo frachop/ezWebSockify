@@ -4,11 +4,15 @@
 class BaseService
 {
 public:
-	BaseService();
-	~BaseService();
+	std::wstring const _name;
 
 public:
-	virtual std::wstring name() const = 0;
+	BaseService() = delete;
+	explicit BaseService(std::wstring const & name) ;
+	~BaseService();
+
+
+public:
 	bool main(DWORD dwArgc, LPTSTR* lpszArgv);
 	virtual void ctrlHandler(DWORD dwCtrl);
 

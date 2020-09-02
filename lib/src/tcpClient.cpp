@@ -65,7 +65,8 @@ namespace ezWebSockify {
 	{
 		LOGTFN;
 		
-		_context._mustQuit = true;
+		_context.stop();
+		//_context._mustQuit = true;
 		_closed = true;
 		net::post(_ioc, [this]() { _socket.close(); });
 	}

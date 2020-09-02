@@ -12,8 +12,7 @@ namespace ezWebSockify {
 	namespace http = beast::http;
 
 	class WsSession
-	:	public std::enable_shared_from_this<WsSession>
-	,	private Bridge
+	:	private Bridge
 	{
 	private:
 		Context & _context;
@@ -41,7 +40,7 @@ namespace ezWebSockify {
 		
 		~WsSession() {
 			LOGTFN;
-			_context._mustQuit = true;
+			_context.stop(); // _mustQuit = true;
 		}
 
 		void run()
@@ -55,7 +54,7 @@ namespace ezWebSockify {
 			net::dispatch(_ws.get_executor(),
 				beast::bind_front_handler(
 					&WsSession::on_run,
-					shared_from_this()));
+					this));
 		}
 	
 	private:
@@ -92,7 +91,7 @@ namespace ezWebSockify {
 			_ws.async_accept(
 				beast::bind_front_handler(
 					&WsSession::on_accept,
-					shared_from_this()));
+					this));
 		}
 	
 	
@@ -103,7 +102,7 @@ namespace ezWebSockify {
 			{
 				LOGE("ws onAccept : {}", ec.message());
 				_closed = true;
-				_context._mustQuit = true;
+				_context.stop(); // _mustQuit = true;
 				return; // fail(ec, "accept");
 			}
 
@@ -121,7 +120,7 @@ namespace ezWebSockify {
 				_buffer,
 				beast::bind_front_handler(
 					&WsSession::on_read,
-					shared_from_this()
+					this
 				)
 			);
 		}
@@ -135,14 +134,14 @@ namespace ezWebSockify {
 			{
 				std::cout << "the WS session was closed" << std::endl;
 				_closed = true;
-				_context._mustQuit = true;
+				_context.stop(); // ._mustQuit = true;
 				return;
 			}
 			if (ec)
 			{
 				LOGE("ws Read : {}", ec.message());
 				_closed = true;
-				_context._mustQuit = true;
+				_context.stop(); //  _mustQuit = true;
 				return;
 			}
 
@@ -194,7 +193,7 @@ namespace ezWebSockify {
 			{
 				LOGE("ws onWrite : {}", ec.message());
 				_closed = true;
-				_context._mustQuit = true;
+				_context.stop(); // _mustQuit = true;
 				return;
 			}
 			
@@ -219,10 +218,14 @@ namespace ezWebSockify {
 	,	_in{in}
 	,	_out{out}
 	,	_acceptor{io_context}
+	,	_uniqueSession{nullptr}
 	{
 		LOGTFN;
 	}
 	
+	WSServer::~WSServer()
+	{}
+
 	void WSServer::start(tcp::endpoint const & endpoint)
 	{
 		LOGTFN;
@@ -239,6 +242,9 @@ namespace ezWebSockify {
 			// Bind to the server address
 			_acceptor.bind(endpoint, ec);
 			
+		LOGT("WSServer listening");
+		std::cout << endpoint << std::endl;
+
         if (!ec)
 			// Start listening for connections
 			_acceptor.listen(1, ec); // accept only one connection
@@ -258,7 +264,9 @@ namespace ezWebSockify {
         if (!ec)
         {
             // Create the session and run it
-            std::make_shared<WsSession>(_context, _ioc, std::move(socket), _in, _out)->run();
+			assert(_uniqueSession.get() == nullptr);
+			_uniqueSession.reset(new WsSession(_context, _ioc, std::move(socket), _in, _out));
+			_uniqueSession->run();
         }
 
         // Do not Accept another connection

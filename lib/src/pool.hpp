@@ -53,8 +53,8 @@ namespace ezWebSockify {
 		void release(Frame *f)
 		{
 			assert(f);
-			assert( std::find( std::begin(_pool), std::end(_pool), f) == std::end(_pool));
 			std::unique_lock<std::mutex> l{ _m };
+			assert( std::find( std::begin(_pool), std::end(_pool), f) == std::end(_pool));
 			_pool.push_back(f);
 			f->setStatus( Frame::Status::released );
 			LOGD("releasing frame [ {} ]", _pool.size());
@@ -63,8 +63,8 @@ namespace ezWebSockify {
 		}
 		
 	private:
-		std::mutex _m;
-		std::list<Frame*> _pool;
+		std::mutex _m{};
+		std::list<Frame*> _pool{};
 	};
 	
 	// - /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,6 +77,7 @@ namespace ezWebSockify {
 		explicit IOStream(FramePool & pool)
 		:	IStream{}
 		,	OStream{}
+		,	_m{}
 		,	_pool{pool}
 		{}
 	

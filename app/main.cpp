@@ -9,6 +9,22 @@
 #include <ezWebSockifyLib/ezWebSockifyLib.hpp>
 #include <iostream>
 #include <limits>
+#include <csignal>
+#include <thread>
+
+
+namespace
+{
+	volatile std::sig_atomic_t gSignalStatus;
+}
+
+void signal_handler(int signal)
+{
+	std::cout << "handling ctrl-c signal" << std::endl;
+	gSignalStatus = signal;
+	ezWebSockify::stop();
+}
+
 
 int main(int argc, const char * argv[])
 {
@@ -28,6 +44,10 @@ int main(int argc, const char * argv[])
 		return 1;
 	}
 
-	ezWebSockify::run(wsPort, tcpHost, tcpPort);
+	// Install a signal handler
+	std::signal(SIGINT, signal_handler);
+	ezWebSockify::start(wsPort, tcpHost, tcpPort);
+	ezWebSockify::wait();
+	ezWebSockify::cleanup();
 	return 0;
 }

@@ -11,15 +11,6 @@
 
 namespace ezWebSockify
 {
-	spdlog::logger* getLogger();
-	#define LOGT(...) SPDLOG_LOGGER_TRACE(getLogger(),  __VA_ARGS__)
-	#define LOGD(...) SPDLOG_LOGGER_DEBUG(getLogger(),  __VA_ARGS__)
-	#define LOGI(...) SPDLOG_LOGGER_INFO(getLogger(),  __VA_ARGS__)
-	#define LOGW(...) SPDLOG_LOGGER_WARN(getLogger(),  __VA_ARGS__)
-	#define LOGE(...) SPDLOG_LOGGER_ERROR(getLogger(),  __VA_ARGS__)
-	#define LOGC(...) SPDLOG_LOGGER_CRITICAL(getLogger(),  __VA_ARGS__)
-	
-	#define LOGTFN LOGT("{}", BOOST_CURRENT_FUNCTION)
 
 	//- /////////////////////////////////////////////////////////////////////////////////
 
@@ -49,7 +40,7 @@ namespace ezWebSockify
 		};
 
 	public:
-		Frame() : _size{0}, _status{ Status::released } { _all.push_back(this); }
+		Frame() : _size{ 0 }, _data{}, _status{ Status::released } { _all.push_back(this); }
 		void clear() { _size = 0; }
 		std::size_t size() const { return _size; }
 		void resize(std::size_t sz) {
@@ -84,17 +75,32 @@ namespace ezWebSockify
 	};
 	
 	using frame_queue_t= std::deque<Frame*> ;
+
+	// - ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	class Context
+	{
+	public:
+		void wait() {
+			std::unique_lock<std::mutex> lock(_m);
+			_mustQuit.wait(lock);
+		}
+
+		void stop(){
+			std::unique_lock<std::mutex> lock(_m);
+			_mustQuit.notify_all();
+		}
+
+	private:
+		std::mutex _m{};
+		std::condition_variable _mustQuit{};
+	};
+
 }
+
+// - ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "pool.hpp"
-
-namespace ezWebSockify
-{
-	struct Context {
-		std::atomic_bool _mustQuit{false};
-	};
-}
-
 #include "tcpClient.hpp"
 
 #include <boost/beast/core.hpp>

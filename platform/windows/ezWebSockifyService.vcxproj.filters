@@ -21,12 +21,24 @@
     <ClCompile Include="ezWebSockifyService\baseService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ezWebSockifyService\common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ezWebSockifyService\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ezWebSockifyService\setup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ezWebSockifyService\baseService.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ezWebSockifyService\common.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ezWebSockifyService\serviceMessage.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8,9 +8,10 @@
 //   Called by SCM whenever a control code is sent to the service
 //   using the ControlService function.
 
-BaseService::BaseService()
-	: _dwCheckPoint(1)
-	, _hEventStop(CreateEvent(NULL,
+BaseService::BaseService(std::wstring const & name)
+:	_name{ name }
+,	_dwCheckPoint(1)
+,	_hEventStop(CreateEvent(NULL,
 		TRUE,    // manual reset event
 		FALSE,   // not signaled
 		NULL))   // no name
@@ -27,13 +28,14 @@ BaseService::~BaseService()
 
 bool BaseService::main(DWORD dwArgc, LPTSTR* lpszArgv)
 {
+
 	_dwCheckPoint = 1;
 
 	// Register the handler function for the service
-	_statusHandle = RegisterServiceCtrlHandler(name().data(), getCtrlHandler());
+	_statusHandle = RegisterServiceCtrlHandler(_name.data(), getCtrlHandler());
 	if (!_statusHandle)
 	{
-		SvcReportEvent(TEXT("RegisterServiceCtrlHandler"), name().data());
+		SvcReportEvent(TEXT("RegisterServiceCtrlHandler"), _name.data());
 		return false;
 	}
 
@@ -63,7 +65,7 @@ bool BaseService::pendingStart(DWORD dwArgc, LPTSTR* lpszArgv)
 {
 	if (_hEventStop == nullptr)
 	{
-		SvcReportEvent(L"CreateEvent", name().data());
+		SvcReportEvent(L"CreateEvent", _name.data());
 		return false;
 	}
 
