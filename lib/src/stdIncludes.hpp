@@ -59,6 +59,7 @@ typedef long long ssize_t;
 #include <boost/asio/strand.hpp>
 #include <boost/array.hpp>
 #include <boost/asio.hpp>
+#include <boost/algorithm/string.hpp>
 #include <iostream>
 #include <thread>
 #include <list>
@@ -70,5 +71,7 @@ typedef long long ssize_t;
 #include <functional>
 #include <memory>
 #include <string>
+#include <set>
+#include <vector>
 
 #endif /* stdIncludes_h */

@@ -34,18 +34,18 @@ namespace ezWebSockify {
 			static int count{0};
 			std::unique_lock<std::mutex> l{ _m };
 			
-			LOGD("get frame from pool...");
+			LOGT("get frame from pool...");
  			if (_pool.empty())
 			{
 				count++;
-				LOGI("... need to create new frame [ {} ]", count);
+				LOGT("... need to create new frame [ {} ]", count);
 			}
 				
 			Frame * res= (_pool.empty()) ? new Frame : _pool.front();
 			if (! _pool.empty())
 				_pool.pop_front();
 			
-			LOGD("...pool count {}", _pool.size());
+			LOGT("...pool count {}", _pool.size());
 			res->setStatus( Frame::Status::readyToRead );
 			return res;
 		}
@@ -57,7 +57,7 @@ namespace ezWebSockify {
 			assert( std::find( std::begin(_pool), std::end(_pool), f) == std::end(_pool));
 			_pool.push_back(f);
 			f->setStatus( Frame::Status::released );
-			LOGD("releasing frame [ {} ]", _pool.size());
+			LOGT("releasing frame [ {} ]", _pool.size());
 			//Frame::dumpAll();
 
 		}
@@ -97,7 +97,7 @@ namespace ezWebSockify {
 			assert( std::find(std::begin(_inStream), std::end(_inStream), f ) == std::end( _inStream ) );
 			_inStream.push_back(f);
 			f->setStatus( Frame::Status::readed );
-			LOGD("adding frame to inStream[ {} ]", _inStream.size());
+			LOGT("adding frame to inStream[ {} ]", _inStream.size());
 
 		}
 
@@ -117,7 +117,7 @@ namespace ezWebSockify {
 
 			Frame* res = _inStream.front();
 			_inStream.pop_front();
-			LOGD("getting frame from inStream[ {} ]", _inStream.size());
+			LOGT("getting frame from inStream[ {} ]", _inStream.size());
 			res->setStatus( Frame::Status::waitToWrite );
 			return res;
 		}
