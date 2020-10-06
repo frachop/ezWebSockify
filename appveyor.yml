@@ -15,4 +15,5 @@ before_build: .\platform\windows\before_build.bat
 
 cache:
   - C:\Users\appveyor\AppData\Local\vcpkg\archives
+  - C:\tools\vcpkg\installed\
 
