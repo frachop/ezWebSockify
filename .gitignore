@@ -8,10 +8,11 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
-
 # Xcode
 platform/macos/**/xcuserdata/
 platform/macos/**/Build/
 
 platform/windows/**/Build/
 platform/windows/**/.vs/
+
+.DS_Store

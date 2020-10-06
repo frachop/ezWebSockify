@@ -28,9 +28,8 @@ namespace ezWebSockify
 		_m.lock();
 		if (_l.get() == nullptr)
 		{
-			std::ofstream of("c:\\opt\\tmp\\logger.txt", std::ios::out | std::ios::app);
-			of << "LOGGER " << std::string( _loggerPath.begin(), _loggerPath.end() ) << std::endl;
-
+			// std::ofstream of("c:\\opt\\tmp\\logger.txt", std::ios::out | std::ios::app);
+			// of << "LOGGER " << std::string( _loggerPath.begin(), _loggerPath.end() ) << std::endl;
 
 			auto dist_sink   = std::make_shared<spdlog::sinks::dist_sink_mt>();
 			auto stdout_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
@@ -46,7 +45,7 @@ namespace ezWebSockify
 
 			_l.reset( new spdlog::logger("ezWebSockify", dist_sink) );
 			_l->set_level(spdlog::level::trace);
-			_l->set_pattern("[%T][%t:%L][%-15s] %v");
+			_l->set_pattern("[%T][%t:%L] %v");
 			//register_logger(l);
 		}
 		_m.unlock();
@@ -128,6 +127,8 @@ namespace ezWebSockify
 	{
 		if (_instance.get())
 			return false;
+
+		LOGI("Starting {} <-> {}:{}", wsPort, tcpHost, tcpPort);
 
 		_instance.reset(new EngineImpl());
 		_instance->start(wsPort, tcpHost, tcpPort);

@@ -3,12 +3,12 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <ROOT_DIR>$(SolutionDir)..\..</ROOT_DIR>
-    <DEPS_DIR>$(ROOT_DIR)\..\ezWebSockify.deps</DEPS_DIR>
+    <DEPS_DIR>$(ROOT_DIR)\..\$(SolutionName).deps</DEPS_DIR>
   </PropertyGroup>
   <PropertyGroup>
     <IncludePath>$(DEPS_DIR)\include;$(IncludePath)</IncludePath>
-    <OutDir>C:\opt\tmp\Build\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>C:\opt\tmp\Build\Intermediate\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>C:\projects\$(SolutionName).build\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>C:\projects\$(SolutionName).build\Intermediate\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>

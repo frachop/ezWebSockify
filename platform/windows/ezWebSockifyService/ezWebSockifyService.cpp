@@ -1,5 +1,6 @@
 #include "common.hpp"
 #include "baseService.hpp"
+#include <boost/lexical_cast.hpp>
 
 // -///////////////////////////////////////////////////////////////////////////////
 
@@ -131,12 +132,35 @@ bool WebsockifyService::pendingStart(DWORD dwArgc, LPTSTR* lpszArgv)
 	if (!BaseService::pendingStart(dwArgc, lpszArgv))
 		return false;
 	
-	if (dwArgc != 2)
+	if (dwArgc < 2)
 		return false;
 
 	ServiceInstanceSettings is;
-	if (!is.read(lpszArgv[1]))
+	if (dwArgc == 2)
+	{
+		if (!is.read(lpszArgv[1]))
+			return false;
+	}
+	else if (dwArgc < 4)
 		return false;
+
+	else {
+		try {
+			if (dwArgc > 4)
+				is._logPath = lpszArgv[4];
+
+			is._wsPort = boost::lexical_cast<uint16_t>(lpszArgv[1]);
+
+			std::wstring_view wtcpHost(lpszArgv[2]);
+			is._tcpHost= std::string( wtcpHost.begin(), wtcpHost.end() );
+			
+			is._tcpPort = boost::lexical_cast<uint16_t>(lpszArgv[3]);
+	
+		}
+		catch (...) {
+			return false;
+		}
+	}
 
 	try
 	{

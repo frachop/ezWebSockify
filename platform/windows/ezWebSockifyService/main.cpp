@@ -1,5 +1,6 @@
 #include "common.hpp"
-
+// change account
+// sc.exe config cinemanextTMSWebsockify obj= "NT AUTHORITY\LocalService" password= ""
 
 // -///////////////////////////////////////////////////////////////////////////////
 
