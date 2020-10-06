@@ -15,6 +15,9 @@ init:
   - 7z x boost_1_73_0.7z
   - cd boost_1_73_0
   - move boost C:\projects\ezWebSockify.deps\include\
+  - mkdir C:\projects\ezWebSockify.deps\include\nlohmann
+  - cd C:\projects\ezWebSockify.deps\include\nlohmann
+  - appveyor DownloadFile "https://github.com/nlohmann/json/releases/download/v3.9.1/json.hpp"
   - cd %APPVEYOR_BUILD_FOLDER%
 
 build:
