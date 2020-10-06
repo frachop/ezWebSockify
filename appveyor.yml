@@ -6,3 +6,9 @@ version: 1.0.{build}
 
 # Build worker image (VM template)
 image: Visual Studio 2019
+
+project: platform/windows/ezWebSockify.sln
+
+# scripts to run before build
+before_build:
+
