@@ -11,6 +11,6 @@ build:
   project: platform/windows/ezWebSockify.sln
 
 # scripts to run before build
-before_build: platform/windows/befaore_build.bat
+before_build: .\platform\windows\before_build.bat
 
 
