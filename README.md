@@ -1,5 +1,7 @@
 # ezWebsockify
 
+[![Build status](https://ci.appveyor.com/api/projects/status/7t234utyq45duhth/branch/master?svg=true)](https://ci.appveyor.com/project/frachop/ezwebsockify/branch/master)
+
 ## WebSockets support for any application/server based on TCP
 
 Original idea from [WebSockify](https://github.com/novnc/websockify).
