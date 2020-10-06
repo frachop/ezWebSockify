@@ -8,12 +8,14 @@ version: 1.0.{build}
 image: Visual Studio 2019
 
 init:
+  - mkdir C:\projects\ezWebSockify.deps\include
   - mkdir C:\projects\ezWebSockify.deps\src
-  - cd C:\projects\ezWebSockify.deps\src
+  - cd C:\projects\ezWebSockify.\deps\src
   - appveyor DownloadFile "https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.7z"
   - 7z x boost_1_73_0.7z
-  - dir
-  - set
+  - cd boost_1_73_0
+  - move boost C:\projects\ezWebSockify.deps\include\
+  - cd %APPVEYOR_BUILD_FOLDER%
 
 build:
   project: platform/windows/ezWebSockify.sln
