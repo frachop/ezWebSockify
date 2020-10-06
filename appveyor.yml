@@ -13,4 +13,6 @@ build:
 # scripts to run before build
 before_build: .\platform\windows\before_build.bat
 
+cache:
+  - C:\Users\appveyor\AppData\Local\vcpkg\archives
 
