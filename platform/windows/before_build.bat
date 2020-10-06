@@ -8,4 +8,5 @@ git checkout -qf 616caa5d30172b65cc3a06800894c575d70cb8e6
 MKDIR ..\..\include
 MOVE include\spdlog ..\..\include\
 
-vcpkg install boost:x64-windows
+vcpkg install boost-filesystem[core]:x64-windows
+vcpkg install boost-beast[core]:x64-windows
