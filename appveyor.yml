@@ -7,6 +7,13 @@ version: 1.0.{build}
 # Build worker image (VM template)
 image: Visual Studio 2019
 
+init:
+  - mkdir C:\projects\ezWebSockify.deps\src
+  - cd C:\projects\ezWebSockify.deps\src
+  - appveyor DownloadFile "https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.7z"
+  - 7z x boost_1_73_0.7z
+  - dir
+
 build:
   project: platform/windows/ezWebSockify.sln
 
@@ -14,6 +21,5 @@ build:
 before_build: .\platform\windows\before_build.bat
 
 cache:
-  - C:\Users\appveyor\AppData\Local\vcpkg\archives
-  - C:\tools\vcpkg\installed\
+  - C:\projects\ezWebSockify.deps\include
 
