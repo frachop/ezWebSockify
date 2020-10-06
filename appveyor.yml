@@ -10,7 +10,7 @@ image: Visual Studio 2019
 init:
   - mkdir C:\projects\ezWebSockify.deps\include
   - mkdir C:\projects\ezWebSockify.deps\src
-  - cd C:\projects\ezWebSockify.\deps\src
+  - cd C:\projects\ezWebSockify.deps\src
   - appveyor DownloadFile "https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.7z"
   - 7z x boost_1_73_0.7z
   - cd boost_1_73_0
