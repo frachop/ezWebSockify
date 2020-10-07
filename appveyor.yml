@@ -21,7 +21,7 @@ init:
   #- cd %APPVEYOR_BUILD_FOLDER%
   
 build:
-  project: platform/windows/ezWebSockify.sln
+  project: %APPVEYOR_BUILD_FOLDER%\platform\windows\ezWebSockify.sln
 
 # scripts to run before build
 before_build: 

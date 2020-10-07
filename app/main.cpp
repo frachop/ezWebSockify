@@ -30,6 +30,7 @@ int main(int argc, const char * argv[])
 {
 	if (argc != 4)
 	{
+		std::cerr << "ezWebSockify version " << ezWebSockify::getVersionString() << std::endl;
 		std::cerr << "Usage: ezWebSockify <wsPort> <tcpHost> <tcpPort>" << std::endl;
 		return 1;
 	}
@@ -46,6 +47,7 @@ int main(int argc, const char * argv[])
 
 	// Install a signal handler
 	std::signal(SIGINT, signal_handler);
+
 	ezWebSockify::start(wsPort, tcpHost, tcpPort);
 	ezWebSockify::wait();
 	ezWebSockify::cleanup();

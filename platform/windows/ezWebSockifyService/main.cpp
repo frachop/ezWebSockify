@@ -10,20 +10,18 @@ SERVICE_TABLE_ENTRY DispatchTable[] =
 	{ NULL, NULL }
 };
 
-
 // -///////////////////////////////////////////////////////////////////////////////
 
 int __cdecl _tmain(int argc, TCHAR* argv[])
 {
-	/*
-	std::wofstream of{ L"c:\\opt\\tmp\\MAIN.txt" };
-	of << argc << std::endl;
-	for (DWORD i = 0; i < argc; ++i)
-		of << std::wstring(argv[i]) << std::endl;
-	*/
+	// If command-line parameter is "version", display lib version. 
+	if ((argc > 1) && (lstrcmpi(argv[1], TEXT("version")) == 0))
+	{
+		printf("ezWebSockifyService version %s\n", ezWebSockify::getVersionString().data()) ;
+	}
 
 	// If command-line parameter is "install", install the service. 
-	if ((argc > 1) && (lstrcmpi(argv[1], TEXT("install")) == 0))
+	else if ((argc > 1) && (lstrcmpi(argv[1], TEXT("install")) == 0))
 	{
 		if (argc > 2)
 			readSetupArguments(argv[2]);
